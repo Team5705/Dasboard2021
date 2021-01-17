@@ -1,4 +1,4 @@
-let scp;
+let scp, defUI;
 
 var app = angular.module("Dashboard", ["ngMaterial", "ngMessages", "nvd3"]);
 
@@ -30,7 +30,6 @@ app.factory("updateService", () => {
   var updateService = {};
 
   updateService.data = {
-    enabled: true,
     cameras: {
       limeCont: document.getElementById("limelight"),
       limelight: "https://firstfrc.blob.core.windows.net/frc2020/Backgrounds%2FInfiniteRecharge_001.png",
@@ -126,11 +125,11 @@ app.factory("updateService", () => {
   };
 
   // NetworkTables.addRobotConnectionListener(updateService.onConnection, true);
-	// NetworkTables.addGlobalListener(updateService.onValueChanged, true);
-
+  // NetworkTables.addGlobalListener(updateService.onValueChanged, true);
+  
+  
   return updateService;
 });
-
 
 app.controller("uiCtrl", ($scope, updateService) => {
 

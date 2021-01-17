@@ -36,9 +36,7 @@ app.controller("sendAuto", ["$scope", function ($scope) {
 
 /* Streams */
 
-  NetworkTables.addKeyListener(
-    "/CameraPublisher/USB Camera 0/streams",
-    (key, value) => {
+  NetworkTables.addKeyListener( "/CameraPublisher/USB Camera 0/streams", (key, value) => {
       var stream = value[0].replace("mjpg:","");
 
       console.log(stream);
@@ -47,14 +45,13 @@ app.controller("sendAuto", ["$scope", function ($scope) {
       scp.$apply();
 
       updateCameras(scp);
+      updateCameras(scp);
     }
   );
   
-  /* Automodes */
+/* Automodes */
   
-  NetworkTables.addKeyListener(
-    "/SmartDashboard/Auto Mode/options",
-    (key, value) => {
+  NetworkTables.addKeyListener( "/SmartDashboard/Auto Mode/options", (key, value) => {
       console.log(value);
       scp.updateService.onValueChanged("autoMode/availableModes", value);
       scp.$apply();

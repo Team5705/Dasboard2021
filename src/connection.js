@@ -36,7 +36,6 @@ function onRobotConnection(connected) {
   
   scp = scp;
 
-  
   var state = connected ? 'Robot connected!' : 'Robot disconnected';
   console.log(state);
 
