@@ -39,8 +39,8 @@ app.controller("sendAuto", ["$scope", function ($scope) {
   NetworkTables.addKeyListener(
     "/CameraPublisher/USB Camera 0/streams",
     (key, value) => {
-      var stream = ''+value[0];
-      stream = stream.replace("mjpg:", "");
+      var stream = value[0].replace("mjpg:","");
+
       console.log(stream);
   
       scp.updateService.onValueChanged("cameras/usb", stream);

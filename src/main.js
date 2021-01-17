@@ -17,6 +17,10 @@ const BrowserWindow = electron.BrowserWindow;
 /** Module for receiving messages from the BrowserWindow */
 const ipc = electron.ipcMain;
 
+
+const robotIp = '10.57.7.2';
+const simIp = '127.0.0.1';
+
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 /**
@@ -56,7 +60,7 @@ function createWindow() {
             connectFunc();
         }
         connectedFunc = connectFunc;
-    });
+    }, simIp);
     // When the script starts running in the window set the ready variable
     ipc.on('ready', (ev, mesg) => {
         console.log('NetworkTables is ready');
@@ -69,7 +73,12 @@ function createWindow() {
         client.addListener(clientDataListener, true);
 
         // Send connection message to the window if if the message is ready
-        if (connectedFunc) connectedFunc();
+        // Send connection message to the window if if the message is ready
+        if (connectedFunc) {
+            connectedFunc();
+        } else {
+            ipc.emit('connect', null, simIp);
+        }
     });
     // When the user chooses the address of the bot than try to connect
     ipc.on('connect', (ev, address, port) => {

@@ -1,4 +1,6 @@
-var app = angular.module("Dashboard", ["ngMaterial", "ngMessages"]);
+let scp;
+
+var app = angular.module("Dashboard", ["ngMaterial", "ngMessages", "nvd3"]);
 
 app.config(function ($mdThemingProvider) {
   $mdThemingProvider.definePalette("green", {
@@ -129,9 +131,9 @@ app.factory("updateService", () => {
   return updateService;
 });
 
-let scp;
 
 app.controller("uiCtrl", ($scope, updateService) => {
+
   $scope.data = updateService.data;
   $scope.updateService = updateService;
   
@@ -143,9 +145,9 @@ app.controller("uiCtrl", ($scope, updateService) => {
 
 let updateCameras = ($scope) => {
     $scope.data.cameras.limeCont.style.background = "url("+ $scope.data.cameras.limelight+") no-repeat";
-    $scope.data.cameras.limeCont.style.backgroundSize = "100% 100%"
+    $scope.data.cameras.limeCont.style.backgroundSize = "100% 100%";
     $scope.data.cameras.usbCont.style.background = "url("+ $scope.data.cameras.usb+") no-repeat";
-    $scope.data.cameras.usbCont.style.backgroundSize = "100% 100%"
+    $scope.data.cameras.usbCont.style.backgroundSize = "100% 100%";
 }
 
 app.controller('tabCtrl', ($scope) => {

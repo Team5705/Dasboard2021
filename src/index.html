@@ -556,11 +556,7 @@
         </div>
     </div>
     <!-- container-fluid -->
-
-    <div id="login">
-        <input id="connect-address" type="text" value="localhost" disabled>
-        <button id="connect" disabled>Connecting</button>
-    </div>
+    
     <script src="bower_components/angular/angular.min.js"></script>
     <script src="bower_components/angular-animate/angular-animate.min.js"></script>
     <script src="bower_components/angular-aria/angular-aria.min.js"></script>
@@ -577,17 +573,18 @@
     <script src="directives/stateIndicator.js"></script>
     <script src="directives/compass.js"></script>
     <script src="directives/colorBall.js"></script>
+    
+    <div id="login">
+        <input id="connect-address" type="text" value="localhost" disabled>
+        <button id="connect" disabled>Connecting</button>
+    </div>
 
     <script src="controller.js"></script>
     <script src="connection.js"></script>
     <script src="../node_modules/@frc-web-components/frc-web-components/build/frc-web-components.min.js"></script>
-
-
-    <script>
-        $(document).on('ready', () => {
-            webbitStore.addSourceProvider('NetworkTables');
-            webbitStore.setDefaultSourceProvider('NetworkTables');
-        })
+    <script>    
+        webbitStore.addSourceProvider('NetworkTables');
+        webbitStore.setDefaultSourceProvider('NetworkTables');
     </script>
 </body>
 

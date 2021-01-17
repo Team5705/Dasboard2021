@@ -41,7 +41,7 @@ function onRobotConnection(connected) {
   console.log(state);
 
   ui.robotState.textContent = state;
-  
+
   scp.data.communication.robot = connected;
   scp.$apply();
   
@@ -65,7 +65,7 @@ function setLogin() {
 }
 // On click try to connect and disable the input and the button
 connect.onclick = () => {
-  ipc.send('connect', address.value, 1735);
+  ipc.send('connect', address.value);
   address.disabled = connect.disabled = true;
   connect.textContent = 'Connecting...';
 };
@@ -84,4 +84,3 @@ NetworkTables.addRobotConnectionListener(onRobotConnection, false);
 
 document.body.classList.toggle('login', true);
 setLogin();
-
