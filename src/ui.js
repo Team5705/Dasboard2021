@@ -66,9 +66,7 @@ app.factory("updateService", () => {
     },
     autoMode: {
       selectedMode: "forward",
-      availableModes: {
-          1: 'center'
-      },
+      availableModes: { },
     },
     communication: {
       robot: false,
@@ -180,6 +178,7 @@ app.controller('autoCtrl', ($scope, updateService) => {
     $scope.data = updateService.data;
 
     $scope.updateAuto = () => {
+      updateService.onValueChanged('autoMode/selectedMode', $scope.autoSelected);
       NetworkTables.putValue('/data/autoSelected/', $scope.autoSelected);
       console.log("Auto selected: " + $scope.autoSelected);
     }

@@ -7,9 +7,6 @@ let loginShown = true;
 // Set function to be called on NetworkTables connect. Not implemented.
 //NetworkTables.addWsConnectionListener(onNetworkTablesConnection, true);
 
-// Set function to be called when robot dis/connects
-NetworkTables.addRobotConnectionListener(onRobotConnection, false);
-
 // Sets function to be called when any NetworkTables key/value changes
 //NetworkTables.addGlobalListener(onValueChanged, true);
 
@@ -43,10 +40,10 @@ function onRobotConnection(connected) {
   var state = connected ? 'Robot connected!' : 'Robot disconnected';
   console.log(state);
 
-  scp.updateService.onConnection(connected);
-  scp.$apply();
-
   ui.robotState.textContent = state;
+  
+  scp.data.communication.robot = connected;
+  scp.$apply();
   
   if (connected) {
     // On connect hide the connect popup
@@ -80,7 +77,11 @@ address.onkeydown = ev => {
   }
 };
 
+// Set function to be called when robot dis/connects
+NetworkTables.addRobotConnectionListener(onRobotConnection, false);
+
 // Show login when starting
 
 document.body.classList.toggle('login', true);
 setLogin();
+
