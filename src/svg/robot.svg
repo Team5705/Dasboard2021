@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="robot-diagram" width="240" height="240">
+    <line x1="25" x2="25" y1="200" y2="80" stroke-width="4px" />
+    <line x1="62" x2="135" y1="68" y2="200" stroke-width="4px" />
+    <line x1="25" x2="88" y1="80" y2="200" stroke-width="4px" />
+    <path fill="none" d="M25 80L68 65L54 30C38 35 25 55 25 81" stroke-width="4px"></path>
+    <line x1="25" x2="63" y1="115" y2="68" stroke-width="4px" />
+    <line x1="25" x2="120" y1="115" y2="115" stroke-width="4px" />
+    <circle cx="116" cy="165" r="6" stroke-width="4px" />
+    <path d="M 95 113 L119 113 L113 92 L100 92 L95 113" stroke-width="2px">
+    </path>
+    <!-- tanques -->
+    <path d="M 30 120 C 32 122 38 122 40 120 L 40 190 C 37 192 33 192 30 190 L 30 120" stroke-width="1px"></path>
+    <path d="M 42 124 C 42 126 48 126 52 124 L 52 196 C 47 198 46 198 42 196 L 42 124" stroke-width="1px"></path>
+    <path d="M 54 120 C 54 122 58 122 64 120 L 64 190 C 57 192 59 192 54 190 L 54 120" stroke-width="1px"></path>
+    <!-- tanques -->
+    <path
+        d="M 15 224 A 1 1 0 0 0 45 224 L 15 224 M 70 224 A 1 1 0 0 0 100 224 L 70 224 M 125 224 A 1 1 0 0 0 155 224 L 125 224"
+        stroke-width="2px"></path>
+    <path id="intake-arm" d="M 148 200 L 154 120 L 160 120 L 166 125 L 158 130 L 152 200 L 148 200" stroke-width="1px">
+    </path>
+    <rect x="6" y="200" width="160" height="24" stroke-width="4px" fill="none" />
+    <text x="85" y="217" font-family="Myriad Pro" text-anchor="middle" fill="none">
+        <tspan id="team" font-size="18px" font-family="Consolas" fill="black ">
+            5705</tspan>
+    </text>
+    <g id="piston">
+        <line x1="90" x2="117" y1="115" y2="148" stroke-width="4px" />
+        <line id="piston-extension" x1="117" x2="152" y1="148" y2="188" stroke-width="2px" />
+        <g>
+</svg>

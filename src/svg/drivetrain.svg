@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="160" height="190" stroke-width="2px">
+    <!-- Chassis -->
+    <rect x="0" y="0" width="160" height="190" stroke="black" stroke-width="4px" fill="none" />
+    <!-- Left side -->
+    <g transform="translate(0,0)" fill="none">
+        <rect x="0" y="0" width="30" height="190" stroke="black" fill="none" />
+        <g transform="translate(5,10)">
+            <rect width="20" height="40" stroke="yellow" />
+            <line x1="0" x2="20" y1="0" y2="6" stroke="yellow" />
+            <line x1="0" x2="20" y1="6" y2="12" stroke="yellow" />
+            <line x1="0" x2="20" y1="12" y2="18" stroke="yellow" />
+            <line x1="0" x2="20" y1="18" y2="24" stroke="yellow" />
+            <line x1="0" x2="20" y1="24" y2="30" stroke="yellow" />
+            <line x1="0" x2="20" y1="30" y2="36" stroke="yellow" />
+            <line x1="0" x2="16" y1="36" y2="40" stroke="yellow" />
+        </g>
+        <g transform="translate(5,75)">
+            <rect width="20" height="40" stroke="yellow" />
+            <line x1="0" x2="20" y1="0" y2="6" stroke="yellow" />
+            <line x1="0" x2="20" y1="6" y2="12" stroke="yellow" />
+            <line x1="0" x2="20" y1="12" y2="18" stroke="yellow" />
+            <line x1="0" x2="20" y1="18" y2="24" stroke="yellow" />
+            <line x1="0" x2="20" y1="24" y2="30" stroke="yellow" />
+            <line x1="0" x2="20" y1="30" y2="36" stroke="yellow" />
+            <line x1="0" x2="16" y1="36" y2="40" stroke="yellow" />
+        </g>
+        <g transform="translate(5,140)">
+            <rect width="20" height="40" stroke="yellow" />
+            <line x1="0" x2="20" y1="0" y2="6" stroke="yellow" />
+            <line x1="0" x2="20" y1="6" y2="12" stroke="yellow" />
+            <line x1="0" x2="20" y1="12" y2="18" stroke="yellow" />
+            <line x1="0" x2="20" y1="18" y2="24" stroke="yellow" />
+            <line x1="0" x2="20" y1="24" y2="30" stroke="yellow" />
+            <line x1="0" x2="20" y1="30" y2="36" stroke="yellow" />
+            <line x1="0" x2="16" y1="36" y2="40" stroke="yellow" />
+        </g>
+    </g>
+
+    <!-- Right side     -->
+    <g transform="translate(130,0)" fill="none">
+        <rect x="0" y="0" width="30" height="190" stroke="black" fill="none" />
+        <g transform="translate(5,10)">
+            <rect width="20" height="40" stroke="yellow" />
+            <line x1="0" x2="20" y1="0" y2="6" stroke="yellow" />
+            <line x1="0" x2="20" y1="6" y2="12" stroke="yellow" />
+            <line x1="0" x2="20" y1="12" y2="18" stroke="yellow" />
+            <line x1="0" x2="20" y1="18" y2="24" stroke="yellow" />
+            <line x1="0" x2="20" y1="24" y2="30" stroke="yellow" />
+            <line x1="0" x2="20" y1="30" y2="36" stroke="yellow" />
+            <line x1="0" x2="16" y1="36" y2="40" stroke="yellow" />
+        </g>
+        <g transform="translate(5,75)">
+            <rect width="20" height="40" stroke="yellow" />
+            <line x1="0" x2="20" y1="0" y2="6" stroke="yellow" />
+            <line x1="0" x2="20" y1="6" y2="12" stroke="yellow" />
+            <line x1="0" x2="20" y1="12" y2="18" stroke="yellow" />
+            <line x1="0" x2="20" y1="18" y2="24" stroke="yellow" />
+            <line x1="0" x2="20" y1="24" y2="30" stroke="yellow" />
+            <line x1="0" x2="20" y1="30" y2="36" stroke="yellow" />
+            <line x1="0" x2="16" y1="36" y2="40" stroke="yellow" />
+        </g>
+        <g transform="translate(5,140)">
+            <rect width="20" height="40" stroke="yellow" />
+            <line x1="0" x2="20" y1="0" y2="6" stroke="yellow" />
+            <line x1="0" x2="20" y1="6" y2="12" stroke="yellow" />
+            <line x1="0" x2="20" y1="12" y2="18" stroke="yellow" />
+            <line x1="0" x2="20" y1="18" y2="24" stroke="yellow" />
+            <line x1="0" x2="20" y1="24" y2="30" stroke="yellow" />
+            <line x1="0" x2="20" y1="30" y2="36" stroke="yellow" />
+            <line x1="0" x2="16" y1="36" y2="40" stroke="yellow" />
+        </g>
+    </g>
+    <!-- Drive Motors -->
+    <rect x="32" y="78" width="30" height="15" fill="yellow" stroke="none" />
+    <rect x="32" y="96" width="30" height="15" fill="yellow" stroke="none" />
+    <rect x="98" y="78" width="30" height="15" fill="yellow" stroke="none" />
+    <rect x="98" y="96" width="30" height="15" fill="yellow" stroke="none" />
+</svg>
