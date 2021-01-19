@@ -180,8 +180,9 @@ app.controller('autoCtrl', ($scope, updateService) => {
     $scope.data = updateService.data;
 
     $scope.updateAuto = () => {
-      updateService.onValueChanged('autoMode/selectedMode', $scope.autoSelected);
-      NetworkTables.putValue('/data/autoSelected/', $scope.autoSelected);
-      console.log("Auto selected: " + $scope.autoSelected);
+      var autonomous = $scope.autoSelected.toLowerCase();
+      updateService.onValueChanged('autoMode/selectedMode', autonomous);
+      NetworkTables.putValue('/SmartDashboard/autoMode/active', autonomous);
+      console.log("Auto selected: " + autonomous);
     }
 });
