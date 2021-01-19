@@ -1,3 +1,5 @@
+/* ONLY FOR TESTING */
+
 app.controller("sendAuto", ["$scope", function ($scope) {
     $scope.autoState = false;
     $scope.updateA = function () {
