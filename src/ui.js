@@ -71,6 +71,7 @@ app.factory("updateService", () => {
     },
     communication: {
       robot: false,
+      robotState: 'Robot disconected',
     },
     robotDiagram: {
       intakeArm: document.getElementById("intake-arm"),
@@ -143,9 +144,9 @@ app.controller("uiCtrl", ($scope, updateService) => {
 });
 
 let updateCameras = ($scope) => {
-    $scope.data.cameras.limeCont.style.background = "url("+ $scope.data.cameras.limelight+") no-repeat";
+    $scope.data.cameras.limeCont.style.background = "url('"+ $scope.data.cameras.limelight+"') no-repeat";
     $scope.data.cameras.limeCont.style.backgroundSize = "100% 100%";
-    $scope.data.cameras.usbCont.style.background = "url("+ $scope.data.cameras.usb+") no-repeat";
+    $scope.data.cameras.usbCont.style.background = "url('"+ $scope.data.cameras.usb+"') no-repeat";
     $scope.data.cameras.usbCont.style.backgroundSize = "100% 100%";
 }
 

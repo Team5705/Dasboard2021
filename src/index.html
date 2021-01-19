@@ -16,6 +16,23 @@
     <script>if (window.module) { module = window.module; }
     </script>
 
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.min.js"></script>
+    <script src="bower_components/angular-material/angular-material.min.js"></script>
+    <script src="bower_components/angular-messages/angular-messages.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.8.4/nv.d3.js"></script>
+    <script src="bower_components/angular-nvd3/dist/angular-nvd3.js"></script>
+    <script src="networktables/networktables.js"></script>
+    <script src="ui.js"></script>
+
+    <!-- Directives -->
+    <script src="directives/ballsChart.js"></script>
+    <script src="directives/stateIndicator.js"></script>
+    <script src="directives/compass.js"></script>
+    <script src="directives/colorBall.js"></script>
+
 </head>
 
 <body>
@@ -37,7 +54,9 @@
                     <!-- end firs row cameras -->
                     <!-- second row comms and robot state-->
                     <div layout="row" flex="grow">
+                        <!-- vision and comms -->
                         <div layout="column" flex class="">
+                            <!-- vision -->
                             <div layout="row" flex="grow" class="box">
                                 <div layout="column" flex>
                                     <h1 class="title">Vision</h1>
@@ -67,45 +86,56 @@
                                     <div layout="row" flex="grow">
                                         <div class="minibox label bold">
                                             <p>Ready shot?</p>
-                                            <state-indicator value="data.vision.targetVisible" radio="14" width="30" height="30"
-                                                style="height: 30px;"></state-indicator>
+                                            <state-indicator value="data.vision.targetVisible" radio="14" width="30"
+                                                height="30" style="height: 30px;"></state-indicator>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            <!-- end vision -->
+                            <!-- communications -->
                             <div layout="row" flex="30" class="box">
                                 <div layout="column" flex>
                                     <h1 class="title">Communications</h1>
                                     <div layout="row" flex="grow">
                                         <div layout="column" flex="grow" layout-align="center center">
                                             <div class="minibox2 label bold">
-                                                <p id="robot-state">Robot Disconnected</p>
-                                                <state-indicator value="data.communication.robot" radio="19" width="40" height="40"
-                                                    style="height: 40px;">
+                                                <p>{{data.communication.robotState}</p>
+                                                <state-indicator value="data.communication.robot" radio="19" width="40"
+                                                    height="40" style="height: 40px;">
                                                 </state-indicator>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            <!-- end communications -->
                         </div>
-
+                        <!-- end vision and comms -->
+                        <!-- game and intake balls status -->
                         <div layout="column" flex="35" class="">
                             <div layout="row" flex>
                                 <div layout="column" flex="100">
+                                    <!-- intake balls -->
                                     <div layout="row" flex="35" class="box">
                                         <div layout="column" flex="grow">
                                             <div layout="row" flex="30" class="" layout-align="center center">
                                                 <h1 class="title">Intake Balls</h1>
                                             </div>
                                             <div layout="row" flex="grow" layout-align="center center" class="medbox2">
-                                                <ball value="data.sensors.switch1" radio="24" width="60" height="50"></ball>
-                                                <ball value="data.sensors.switch2" radio="24" width="60" height="50"></ball>
-                                                <ball value="data.sensors.switch3" radio="24" width="60" height="50"></ball>
-                                                <ball value="data.sensors.switch4" radio="24" width="60" height="50"></ball>
+                                                <ball value="data.sensors.switch1" radio="24" width="60" height="50">
+                                                </ball>
+                                                <ball value="data.sensors.switch2" radio="24" width="60" height="50">
+                                                </ball>
+                                                <ball value="data.sensors.switch3" radio="24" width="60" height="50">
+                                                </ball>
+                                                <ball value="data.sensors.switch4" radio="24" width="60" height="50">
+                                                </ball>
                                             </div>
                                         </div>
-                                    </div> <!-- first row box -->
+                                    </div> 
+                                    <!-- end intake balls -->
+                                    <!-- game info -->
                                     <div layout="row" flex="grow" class="box">
                                         <div layout="column" flex>
                                             <div layout="row" flex="15" class="" layout-align="center center">
@@ -131,10 +161,18 @@
                                                         <div class="medbox2 label bold">
                                                             <p style="margin-right: 5%;">Game data</p>
                                                             <!--{{data.gamedata.color}}-->
-                                                                <color-ball value="data.gamedata.R" color="#FF0000" radio="14" width="30" height="30" style="height: 30px;"></color-ball>&nbsp;
-                                                                <color-ball value="data.gamedata.G" color="#00FF00" radio="14" width="30" height="30" style="height: 30px;"></color-ball>&nbsp;
-                                                                <color-ball value="data.gamedata.B" color="#0000FF" radio="14" width="30" height="30" style="height: 30px;"></color-ball>&nbsp;
-                                                                <color-ball value="data.gamedata.Y" color="#ebff33" radio="14" width="30" height="30" style="height: 30px;"></color-ball> 
+                                                            <color-ball value="data.gamedata.R" color="#FF0000"
+                                                                radio="14" width="30" height="30" style="height: 30px;">
+                                                            </color-ball>&nbsp;
+                                                            <color-ball value="data.gamedata.G" color="#00FF00"
+                                                                radio="14" width="30" height="30" style="height: 30px;">
+                                                            </color-ball>&nbsp;
+                                                            <color-ball value="data.gamedata.B" color="#0000FF"
+                                                                radio="14" width="30" height="30" style="height: 30px;">
+                                                            </color-ball>&nbsp;
+                                                            <color-ball value="data.gamedata.Y" color="#ebff33"
+                                                                radio="14" width="30" height="30" style="height: 30px;">
+                                                            </color-ball>
                                                         </div>
                                                     </div>
                                                     <div layout="row" flex="grow">
@@ -151,10 +189,13 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div> <!-- second row box -->
+                                    </div> 
+                                    <!-- end game info -->
                                 </div> <!-- column -->
                             </div> <!-- row -->
-                        </div> <!-- column container -->
+                        </div> 
+                        <!-- end game and intake balls status -->
+                        <!-- robot status -->
                         <div layout="column" flex="30" class="box">
                             <div layout="row" flex>
                                 <div layout="column" flex class="">
@@ -194,7 +235,7 @@
                                                 fill="none" />
                                             <text x="85" y="217" font-family="Myriad Pro" text-anchor="middle"
                                                 fill="none">
-                                                <tspan id="team" font-size="18px" font-family="Consolas" fill="black ">
+                                                <tspan id="team" font-size="18px" font-family="Consolas" fill="black">
                                                     5705</tspan>
                                             </text>
                                             <g id="piston">
@@ -205,7 +246,6 @@
                                         </svg>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>
@@ -213,67 +253,82 @@
                 </div>
                 <!-- end left side -->
                 <!-- right side -->
-                <div layout="column" flex="40" class="box">
+                <div layout="column" flex="35" class="box">
                     <md-tabs class="md-primary" md-left-tabs>
                         <md-tab label="Sensors">
                             <div layout="row" flex="grow" style="height: 100%;">
                                 <div layout="column" flex="grow">
                                     <div class="medbox" layout="row" flex="grow">
+                                        <!-- gyro value -->
                                         <div layout="column" flex="grow" layout-align="center center">
                                             <h1 class="title">Robot Gyroscope</h1>
                                             <compass value="data.sensors.gyroAngle" width="180" height="180"></compass>
                                             <p class="subTitle">Gyro angle: {{data.sensors.gyroAngle}}</p>
                                         </div>
+                                        <!-- end gyro value -->
                                         <div layout="column" flex="grow">
+                                            <!-- autonomous selector -->
                                             <div layout="row" flex="grow">
                                                 <div layout="column" flex="grow">
-                                                    <div class="medbox2" layout="row" flex="30" layout-align="center center">
+                                                    <div class="medbox2" layout="row" flex="30"
+                                                        layout-align="center center">
                                                         <h1 class="title">Autonomous Chooser</h1>
                                                     </div>
                                                     <div layout="row" flex="grow" class="" layout-align="center center">
                                                         <md-input-container class="select-c" ng-controller="autoCtrl">
                                                             <label>Autonomous</label>
-                                                            <md-select ng-model="autoSelected" label="Autonomous" ng-change="updateAuto()">
-                                                                <md-option><em>None</em></md-option>
-                                                                <md-option ng-repeat="auto in data.autoMode.availableModes" ng-value="auto">
-                                                                {{auto}}
+                                                            <md-select ng-model="autoSelected" label="Autonomous"
+                                                                ng-change="updateAuto()">
+                                                                <md-option><em>Default</em></md-option>
+                                                                <md-option
+                                                                    ng-repeat="auto in data.autoMode.availableModes"
+                                                                    ng-value="auto">
+                                                                    {{auto}}
                                                                 </md-option>
                                                             </md-select>
                                                         </md-input-container>
                                                     </div>
                                                 </div>
                                             </div>
+                                            <!-- end autonomous selector -->
+                                            <!-- test button -->
                                             <div layout="row" flex="grow">
                                                 <div layout="column" flex="grow">
-                                                    <div class="medbox2" layout="row" flex="30" layout-align="center center">
+                                                    <div class="medbox2" layout="row" flex="30"
+                                                        layout-align="center center">
                                                         <h1 class="title"></h1>
                                                     </div>
-                                                    <div layout="row" flex="grow" class="" layout-align="center center">
-                                                        <div flex ng-controller="sendAuto">
-                                                            <md-button ng-click="updateA()" class="md-raised md-primary" ng-class=""
-                                                                ng-mouseenter="select('on')">Update</md-button>
-                                                        </div>
+                                                    <div layout="row" flex="grow" class="" layout-align="center center" ng-controller="sendAuto">
+                                                        <md-button ng-click="updateA()" class="md-raised md-primary"
+                                                            ng-class="" ng-mouseenter="select('on')">Update
+                                                        </md-button>
                                                     </div>
                                                 </div>
                                             </div>
+                                            <!-- end test button -->
+                                            <!-- gyro status -->
                                             <div layout="row" flex="grow">
                                                 <div layout="column" flex="grow">
-                                                    <div class="medbox2" layout="row" flex="30" layout-align="center center">
+                                                    <div class="medbox2" layout="row" flex="30"
+                                                        layout-align="center center">
                                                         <h1 class="title">isGyroCalibrated</h1>
                                                     </div>
                                                     <div layout="row" flex="grow" class="" layout-align="center center">
-                                                        <state-indicator value="data.sensors.isGyroCalibrated" radio="19" width="40" height="40" style="height: 40px;"></state-indicator>
+                                                        <state-indicator value="data.sensors.isGyroCalibrated"
+                                                            radio="19" width="40" height="40" style="height: 40px;">
+                                                        </state-indicator>
                                                     </div>
                                                 </div>
                                             </div>
+                                            <!-- gyro status -->
                                         </div>
                                     </div>
                                     <!-- Motors Status -->
                                     <div class="medbox2" layout="row" flex="grow">
                                         <div layout="column" flex="grow">
                                             <div layout="row" flex="grow">
-                                                <div layout="column" flex="grow">
-                                                    <!-- left drive -->
+                                                <!-- left drive -->
+                                                <div layout="column" flex>
                                                     <div layout="row" flex="10" class="" layout-align="center center">
                                                         <h1 class="title">Left Drive</h1>
                                                     </div>
@@ -281,31 +336,32 @@
                                                         <div layout="column" flex="grow">
                                                             <div layout="row" flex="grow">
                                                                 <div class="minibox padding5" layout="column"
-                                                                    flex="grow" layout-align="center start">Encoder:
+                                                                    flex="grow" layout-align="center start">
+                                                                    <p>Encoder: <span
+                                                                            class="value">{{data.motors.leftEncoder}}</span>
+                                                                    </p>
                                                                 </div>
-                                                                <div class="minibox" layout="column" flex="grow"
-                                                                    layout-align="center center">
-                                                                    {{data.motors.leftEncoder}}</div>
                                                             </div>
                                                             <div layout="row" flex="grow">
                                                                 <div class="minibox padding5" layout="column"
-                                                                    flex="grow" layout-align="center start">Rate:</div>
-                                                                <div class="minibox" layout="column" flex="grow"
-                                                                    layout-align="center center">
-                                                                    {{data.motors.leftRate}}</div>
+                                                                    flex="grow" layout-align="center start">
+                                                                    <p>Rate: <span
+                                                                            class="value">{{data.motors.leftRate}}</span>
+                                                                    </p>
+                                                                </div>
                                                             </div>
                                                             <div layout="row" flex="grow">
                                                                 <div class="minibox padding5" layout="column"
-                                                                    flex="grow" layout-align="center start">Position:
+                                                                    flex="grow" layout-align="center start">
+                                                                    <p>Position:<span
+                                                                            class="value">{{data.motors.leftPosition}}</span>
+                                                                    </p>
                                                                 </div>
-                                                                <div class="minibox" layout="column" flex="grow"
-                                                                    layout-align="center center">
-                                                                    {{data.motors.leftPosition}}</div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div> <!-- end left drive -->
-                                                <div layout="column" flex="30">
+                                                <div layout="column" flex="35">
                                                     <div class="minibox2" layout="row" flex="10" class=""
                                                         layout-align="center center"></div>
                                                     <div layout="row" flex class="minibox" layout-align="center center">
@@ -318,55 +374,52 @@
                                                                 <rect x="0" y="0" width="30" height="190" stroke="black"
                                                                     fill="none" />
                                                                 <g transform="translate(5,10)">
-                                                                    <rect width="20" height="40" stroke="yellow" />
-                                                                    <line x1="0" x2="20" y1="0" y2="6"
-                                                                        stroke="yellow" />
+                                                                    <rect width="20" height="40" stroke="black" />
+                                                                    <line x1="0" x2="20" y1="0" y2="6" stroke="black" />
                                                                     <line x1="0" x2="20" y1="6" y2="12"
-                                                                        stroke="yellow" />
+                                                                        stroke="black" />
                                                                     <line x1="0" x2="20" y1="12" y2="18"
-                                                                        stroke="yellow" />
+                                                                        stroke="black" />
                                                                     <line x1="0" x2="20" y1="18" y2="24"
-                                                                        stroke="yellow" />
+                                                                        stroke="black" />
                                                                     <line x1="0" x2="20" y1="24" y2="30"
-                                                                        stroke="yellow" />
+                                                                        stroke="black" />
                                                                     <line x1="0" x2="20" y1="30" y2="36"
-                                                                        stroke="yellow" />
+                                                                        stroke="black" />
                                                                     <line x1="0" x2="16" y1="36" y2="40"
-                                                                        stroke="yellow" />
+                                                                        stroke="black" />
                                                                 </g>
                                                                 <g transform="translate(5,75)">
-                                                                    <rect width="20" height="40" stroke="yellow" />
-                                                                    <line x1="0" x2="20" y1="0" y2="6"
-                                                                        stroke="yellow" />
+                                                                    <rect width="20" height="40" stroke="black" />
+                                                                    <line x1="0" x2="20" y1="0" y2="6" stroke="black" />
                                                                     <line x1="0" x2="20" y1="6" y2="12"
-                                                                        stroke="yellow" />
+                                                                        stroke="black" />
                                                                     <line x1="0" x2="20" y1="12" y2="18"
-                                                                        stroke="yellow" />
+                                                                        stroke="black" />
                                                                     <line x1="0" x2="20" y1="18" y2="24"
-                                                                        stroke="yellow" />
+                                                                        stroke="black" />
                                                                     <line x1="0" x2="20" y1="24" y2="30"
-                                                                        stroke="yellow" />
+                                                                        stroke="black" />
                                                                     <line x1="0" x2="20" y1="30" y2="36"
-                                                                        stroke="yellow" />
+                                                                        stroke="black" />
                                                                     <line x1="0" x2="16" y1="36" y2="40"
-                                                                        stroke="yellow" />
+                                                                        stroke="black" />
                                                                 </g>
                                                                 <g transform="translate(5,140)">
-                                                                    <rect width="20" height="40" stroke="yellow" />
-                                                                    <line x1="0" x2="20" y1="0" y2="6"
-                                                                        stroke="yellow" />
+                                                                    <rect width="20" height="40" stroke="black" />
+                                                                    <line x1="0" x2="20" y1="0" y2="6" stroke="black" />
                                                                     <line x1="0" x2="20" y1="6" y2="12"
-                                                                        stroke="yellow" />
+                                                                        stroke="black" />
                                                                     <line x1="0" x2="20" y1="12" y2="18"
-                                                                        stroke="yellow" />
+                                                                        stroke="black" />
                                                                     <line x1="0" x2="20" y1="18" y2="24"
-                                                                        stroke="yellow" />
+                                                                        stroke="black" />
                                                                     <line x1="0" x2="20" y1="24" y2="30"
-                                                                        stroke="yellow" />
+                                                                        stroke="black" />
                                                                     <line x1="0" x2="20" y1="30" y2="36"
-                                                                        stroke="yellow" />
+                                                                        stroke="black" />
                                                                     <line x1="0" x2="16" y1="36" y2="40"
-                                                                        stroke="yellow" />
+                                                                        stroke="black" />
                                                                 </g>
                                                             </g>
 
@@ -375,71 +428,68 @@
                                                                 <rect x="0" y="0" width="30" height="190" stroke="black"
                                                                     fill="none" />
                                                                 <g transform="translate(5,10)">
-                                                                    <rect width="20" height="40" stroke="yellow" />
-                                                                    <line x1="0" x2="20" y1="0" y2="6"
-                                                                        stroke="yellow" />
+                                                                    <rect width="20" height="40" stroke="black" />
+                                                                    <line x1="0" x2="20" y1="0" y2="6" stroke="black" />
                                                                     <line x1="0" x2="20" y1="6" y2="12"
-                                                                        stroke="yellow" />
+                                                                        stroke="black" />
                                                                     <line x1="0" x2="20" y1="12" y2="18"
-                                                                        stroke="yellow" />
+                                                                        stroke="black" />
                                                                     <line x1="0" x2="20" y1="18" y2="24"
-                                                                        stroke="yellow" />
+                                                                        stroke="black" />
                                                                     <line x1="0" x2="20" y1="24" y2="30"
-                                                                        stroke="yellow" />
+                                                                        stroke="black" />
                                                                     <line x1="0" x2="20" y1="30" y2="36"
-                                                                        stroke="yellow" />
+                                                                        stroke="black" />
                                                                     <line x1="0" x2="16" y1="36" y2="40"
-                                                                        stroke="yellow" />
+                                                                        stroke="black" />
                                                                 </g>
                                                                 <g transform="translate(5,75)">
-                                                                    <rect width="20" height="40" stroke="yellow" />
-                                                                    <line x1="0" x2="20" y1="0" y2="6"
-                                                                        stroke="yellow" />
+                                                                    <rect width="20" height="40" stroke="black" />
+                                                                    <line x1="0" x2="20" y1="0" y2="6" stroke="black" />
                                                                     <line x1="0" x2="20" y1="6" y2="12"
-                                                                        stroke="yellow" />
+                                                                        stroke="black" />
                                                                     <line x1="0" x2="20" y1="12" y2="18"
-                                                                        stroke="yellow" />
+                                                                        stroke="black" />
                                                                     <line x1="0" x2="20" y1="18" y2="24"
-                                                                        stroke="yellow" />
+                                                                        stroke="black" />
                                                                     <line x1="0" x2="20" y1="24" y2="30"
-                                                                        stroke="yellow" />
+                                                                        stroke="black" />
                                                                     <line x1="0" x2="20" y1="30" y2="36"
-                                                                        stroke="yellow" />
+                                                                        stroke="black" />
                                                                     <line x1="0" x2="16" y1="36" y2="40"
-                                                                        stroke="yellow" />
+                                                                        stroke="black" />
                                                                 </g>
                                                                 <g transform="translate(5,140)">
-                                                                    <rect width="20" height="40" stroke="yellow" />
-                                                                    <line x1="0" x2="20" y1="0" y2="6"
-                                                                        stroke="yellow" />
+                                                                    <rect width="20" height="40" stroke="black" />
+                                                                    <line x1="0" x2="20" y1="0" y2="6" stroke="black" />
                                                                     <line x1="0" x2="20" y1="6" y2="12"
-                                                                        stroke="yellow" />
+                                                                        stroke="black" />
                                                                     <line x1="0" x2="20" y1="12" y2="18"
-                                                                        stroke="yellow" />
+                                                                        stroke="black" />
                                                                     <line x1="0" x2="20" y1="18" y2="24"
-                                                                        stroke="yellow" />
+                                                                        stroke="black" />
                                                                     <line x1="0" x2="20" y1="24" y2="30"
-                                                                        stroke="yellow" />
+                                                                        stroke="black" />
                                                                     <line x1="0" x2="20" y1="30" y2="36"
-                                                                        stroke="yellow" />
+                                                                        stroke="black" />
                                                                     <line x1="0" x2="16" y1="36" y2="40"
-                                                                        stroke="yellow" />
+                                                                        stroke="black" />
                                                                 </g>
                                                             </g>
                                                             <!-- Drive Motors -->
-                                                            <rect x="32" y="78" width="30" height="15" fill="yellow"
+                                                            <rect x="32" y="78" width="30" height="15" fill="black"
                                                                 stroke="none" />
-                                                            <rect x="32" y="96" width="30" height="15" fill="yellow"
+                                                            <rect x="32" y="96" width="30" height="15" fill="black"
                                                                 stroke="none" />
-                                                            <rect x="98" y="78" width="30" height="15" fill="yellow"
+                                                            <rect x="98" y="78" width="30" height="15" fill="black"
                                                                 stroke="none" />
-                                                            <rect x="98" y="96" width="30" height="15" fill="yellow"
+                                                            <rect x="98" y="96" width="30" height="15" fill="black"
                                                                 stroke="none" />
                                                         </svg>
                                                     </div>
                                                 </div>
-                                                <div layout="column" flex="grow">
-                                                    <!-- right drive -->
+                                                <!-- right drive -->
+                                                <div layout="column" flex>
                                                     <div layout="row" flex="10" class="" layout-align="center center">
                                                         <h1 class="title">Right Drive</h1>
                                                     </div>
@@ -447,26 +497,27 @@
                                                         <div layout="column" flex="grow">
                                                             <div layout="row" flex="grow">
                                                                 <div class="minibox padding5" layout="column"
-                                                                    flex="grow" layout-align="center start">Encoder:
+                                                                    flex="grow" layout-align="center start">
+                                                                    <p>Encoder: <span
+                                                                            class="value">{{data.motors.rightEncoder}}</span>
+                                                                    </p>
                                                                 </div>
-                                                                <div class="minibox" layout="column" flex="grow"
-                                                                    layout-align="center center">
-                                                                    {{data.motors.rightEncoder}}</div>
                                                             </div>
                                                             <div layout="row" flex="grow">
                                                                 <div class="minibox padding5" layout="column"
-                                                                    flex="grow" layout-align="center start">Rate:</div>
-                                                                <div class="minibox" layout="column" flex="grow"
-                                                                    layout-align="center center">
-                                                                    {{data.motors.rightRate}}</div>
+                                                                    flex="grow" layout-align="center start">
+                                                                    <p>Rate: <span
+                                                                            class="value">{{data.motors.rightRate}}</span>
+                                                                    </p>
+                                                                </div>
                                                             </div>
                                                             <div layout="row" flex="grow">
                                                                 <div class="minibox padding5" layout="column"
-                                                                    flex="grow" layout-align="center start">Position:
+                                                                    flex="grow" layout-align="center start">
+                                                                    <p>Position:<span
+                                                                            class="value">{{data.motors.rightPosition}}</span>
+                                                                    </p>
                                                                 </div>
-                                                                <div class="minibox" layout="column" flex="grow"
-                                                                    layout-align="center center">
-                                                                    {{data.motors.rightPosition}}</div>
                                                             </div>
                                                         </div>
                                                     </div> <!-- end right drive -->
@@ -527,13 +578,13 @@
                                             <md-input-container class="input-text-c padding5">
                                                 <label>Limelight Source</label>
                                                 <input ng-model="data.cameras.limelight">
-                                              </md-input-container>
+                                            </md-input-container>
                                         </div>
                                         <div layout="row" flex="grow" layout-align="start center">
                                             <md-input-container class="input-text-c padding5">
                                                 <label>USB Camera Source</label>
                                                 <input ng-model="data.cameras.usb">
-                                              </md-input-container>
+                                            </md-input-container>
                                         </div>
                                         <div layout="row" flex="grow" layout-align="end center">
                                             <md-button class="md-raised md-primary" ng-click="updateSources()">
@@ -543,10 +594,20 @@
                                     </div>
                                 </div>
                             </div>
-                            <div flex ng-controller="doConnection">
-                                <md-button ng-click="openModal()" class="md-raised md-primary touchButton" ng-class=""
-                                    ng-mouseenter="select('on')">Connect</md-button>
-                            </div><!-- button connection -->
+                            <div layout="column" flex="grow" class="medbox">
+                                <div layout="row" flex="grow">
+                                    <div layout="column" flex="grow" ng-controller="cameraCtrl">
+                                        <div class="medbox2" layout="row" flex="30" layout-align="center center">
+                                            <h1 class="title">Robot Connection</h1>
+                                        </div>
+                                        <div layout="row" flex="grow" ng-controller="doConnection" layout-align="center center">
+                                            <md-button ng-click="openModal()" class="md-raised md-primary" ng-class=""
+                                                ng-mouseenter="select('on')">Connect</md-button>
+                                        </div><!-- button connection -->
+                                    </div>
+                                </div>
+                            </div>
+
                         </md-tab>
                     </md-tabs>
                 </div>
@@ -556,24 +617,7 @@
         </div>
     </div>
     <!-- container-fluid -->
-    
-    <script src="bower_components/angular/angular.min.js"></script>
-    <script src="bower_components/angular-animate/angular-animate.min.js"></script>
-    <script src="bower_components/angular-aria/angular-aria.min.js"></script>
-    <script src="bower_components/angular-material/angular-material.min.js"></script>
-    <script src="bower_components/angular-messages/angular-messages.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.8.4/nv.d3.js"></script>
-    <script src="bower_components/angular-nvd3/dist/angular-nvd3.js"></script>
-    <script src="networktables/networktables.js"></script>
-    <script src="ui.js"></script>
-    
-    <!-- Directives -->
-    <script src="directives/ballsChart.js"></script>
-    <script src="directives/stateIndicator.js"></script>
-    <script src="directives/compass.js"></script>
-    <script src="directives/colorBall.js"></script>
-    
+
     <div id="login">
         <input id="connect-address" type="text" value="localhost" disabled>
         <button id="connect" disabled>Connecting</button>
@@ -582,7 +626,7 @@
     <script src="controller.js"></script>
     <script src="connection.js"></script>
     <script src="../node_modules/@frc-web-components/frc-web-components/build/frc-web-components.min.js"></script>
-    <script>    
+    <script>
         webbitStore.addSourceProvider('NetworkTables');
         webbitStore.setDefaultSourceProvider('NetworkTables');
     </script>
