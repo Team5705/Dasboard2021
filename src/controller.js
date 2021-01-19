@@ -39,7 +39,7 @@ app.controller("sendAuto", ["$scope", function ($scope) {
   
   /* Pneumatics */
   
-  NetworkTables.addKeyListener("/SmartDashboard/intakeState", (key, value) => {
+  NetworkTables.addKeyListener("/SmartDashboard/intakeDeployed", (key, value) => {
     if (value) {
       scp.data.robotDiagram.intakeArm.setAttribute("transform", "rotate(" + 85 + ", 148, 195)");
       scp.data.robotDiagram.piston.setAttribute("transform", "rotate(-6, 90, 117)");
