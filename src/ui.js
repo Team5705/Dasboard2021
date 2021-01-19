@@ -71,7 +71,7 @@ app.factory("updateService", () => {
     },
     communication: {
       robot: false,
-      robotState: 'Robot disconected',
+      robotState: 'Robot disconnected',
     },
     robotDiagram: {
       intakeArm: document.getElementById("intake-arm"),
