@@ -39,10 +39,8 @@ function onRobotConnection(connected) {
   var state = connected ? 'Robot connected!' : 'Robot disconnected';
   console.log(state);
 
-  ui.robotState.textContent = state;
-
+  scp.data.communication.robotState = state;
   scp.data.communication.robot = connected;
-  scp.$apply();
   
   if (connected) {
     // On connect hide the connect popup
@@ -50,8 +48,12 @@ function onRobotConnection(connected) {
     loginShown = false;
   } else if (loginShown) {
     setLogin();
+  }else{
+    scp.data.gamedata.R
   }
+  scp.$apply();
 }
+
 function setLogin() {
   // Add Enter key handler
   // Enable the input and the button
