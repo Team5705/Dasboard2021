@@ -1,4 +1,4 @@
-[<img src="images/logo.svg" align="right" width="150">](https://github.com/Team5705/Dasboard2021)
+[<img src="images/logo.png" align="right" width="150">](https://github.com/Team5705/Dasboard2021)
 # 5705 Dashboard 2021
 
 This is our newest web based FRC Dashboard to 20-21 challange.
