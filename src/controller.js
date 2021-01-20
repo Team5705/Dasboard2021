@@ -95,27 +95,27 @@ app.controller("sendAuto", ["$scope", function ($scope) {
   /* Motors data */
 
   NetworkTables.addKeyListener("/SmartDashboard/encoder_L", (key,value) => {
-    scp.updateService.onValueChanged('motors/leftEncoder', value);
+    scp.updateService.onValueChanged('motors/leftEncoder', roundVal(value));
     scp.$apply();
   });
   NetworkTables.addKeyListener("/SmartDashboard/positionL", (key,value) => {
-    scp.updateService.onValueChanged('motors/leftPosition', value);
+    scp.updateService.onValueChanged('motors/leftPosition', roundVal(value));
     scp.$apply();
   });
   NetworkTables.addKeyListener("/SmartDashboard/rateL", (key,value) => {
-    scp.updateService.onValueChanged('motors/leftRate', value);
+    scp.updateService.onValueChanged('motors/leftRate', roundVal(value));
     scp.$apply();
   });
   NetworkTables.addKeyListener("/SmartDashboard/encoder_R", (key,value) => {
-    scp.updateService.onValueChanged('motors/rightEncoder', value);
+    scp.updateService.onValueChanged('motors/rightEncoder', roundVal(value));
     scp.$apply();
   });
   NetworkTables.addKeyListener("/SmartDashboard/positionR", (key,value) => {
-    scp.updateService.onValueChanged('motors/rightPosition', value);
+    scp.updateService.onValueChanged('motors/rightPosition', roundVal(value));
     scp.$apply();
   });
   NetworkTables.addKeyListener("/SmartDashboard/rateR", (key,value) => {
-    scp.updateService.onValueChanged('motors/rightRate', value);
+    scp.updateService.onValueChanged('motors/rightRate', roundVal(value));
     scp.$apply();
   });
 
@@ -138,7 +138,7 @@ app.controller("sendAuto", ["$scope", function ($scope) {
     scp.$apply();
   });
   NetworkTables.addKeyListener("/SmartDashboard/gyro", (key, value) => {
-    scp.updateService.onValueChanged("sensors/gyroAngle", value);
+    scp.updateService.onValueChanged("sensors/gyroAngle", roundVal(value));
     scp.$apply();
   });
   
@@ -150,3 +150,8 @@ app.controller("sendAuto", ["$scope", function ($scope) {
 addEventListener("error", (ev) => {
   ipc.send("windowError", { mesg: ev.message, file: ev.filename, lineNumber: ev.lineno,});
 });
+
+/* Function to round 3 decimals */
+let roundVal = (value) => {
+  return parseFloat(Math.round(value * 1000) / 1000).toFixed(3);
+}
