@@ -103,7 +103,7 @@ app.controller("sendAuto", ["$scope", function ($scope) {
     scp.$apply();
   });
   NetworkTables.addKeyListener("/SmartDashboard/rateL", (key,value) => {
-    scp.updateService.onValueChanged('motors/leftRate', roundVal(value));
+    scp.updateService.onValueChanged('motors/leftRate', value);
     scp.$apply();
   });
   NetworkTables.addKeyListener("/SmartDashboard/encoder_R", (key,value) => {
@@ -115,7 +115,7 @@ app.controller("sendAuto", ["$scope", function ($scope) {
     scp.$apply();
   });
   NetworkTables.addKeyListener("/SmartDashboard/rateR", (key,value) => {
-    scp.updateService.onValueChanged('motors/rightRate', roundVal(value));
+    scp.updateService.onValueChanged('motors/rightRate', value);
     scp.$apply();
   });
 
