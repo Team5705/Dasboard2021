@@ -1,0 +1,391 @@
+:root {
+    --dark50: #e4e4e4;
+    --dark100: #bcbcbc;
+    --dark200: #909090;
+    --dark300: #636363;
+    --dark400: #414141;
+    --dark500: #202020;
+    --dark600: #1c1c1c;
+    --dark700: #181818;
+    --dark800: #131313;
+    --dark900: #0b0b0b;
+    --darkA100: #e76c6c;
+    --darkA200: #e04040;
+    --darkA400: #ec0000;
+    --darkA700: #d30000;
+
+  --green50: #e6ebe6;
+  --green100: #c1cec1;
+  --green200: #97ae97;
+  --green300: #6d8d6d;
+  --green400: #4e744e;
+  --green500: #2f5c2f; /* buttons */
+  --green600: #2a542a;
+  --green700: #234a23; /* boxes */
+  --green800: #1d411d; /* boxes2*/
+  --green900: #123012; /* background */
+  --greenA100: #6fff6f;
+  --greenA200: #3cff3c;
+  --greenA400: #09ff09; /* higlight */
+  --greenA700: #00ef00;
+
+  --orange50: #fff0e0;
+  --orange100: #ffd9b3;
+  --orange200: #ffbf80;
+  --orange300: #ffa54d;
+  --orange400: #ff9226;
+  --orange500: #ff7f00;
+  --orange600: #ff7700;
+  --orange700: #ff6c00;
+  --orange800: #ff6200;
+  --orange900: #ff4f00;
+  --orangeA100: #ffffff;
+  --orangeA200: #fff5f2;
+  --orangeA400: #ffcfbf;
+  --orangeA700: #ffbca6;
+
+  --aqua50: #e9fdf4;
+  --aqua100: #c9f9e3;
+  --aqua200: #a5f5d0;
+  --aqua300: #81f1bd;
+  --aqua400: #66eeaf;
+  --aqua500: #4beba1;
+  --aqua600: #44e999;
+  --aqua700: #3be58f;
+  --aqua800: #33e285;
+  --aqua900: #23dd74;
+  --aquaA100: #ffffff;
+  --aquaA200: #e4ffef;
+  --aquaA400: #b1ffd1;
+  --aquaA700: #97ffc2;
+
+
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+::-webkit-scrollbar {
+  display: none;
+}
+body {
+  font: 16px sans-serif;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  color: white;
+  overflow: hidden;
+  background: var(--dark900);
+}
+
+hr {
+  border-color: var(--dark200);
+}
+
+.cam {
+  width: 100%;
+  height: 100%;
+}
+
+.camContainer {
+  min-height: 260px;
+  height: 260px;
+}
+
+#limelight {
+  width: 100%;
+  height: 100%;
+}
+
+#usb {
+  width: 100%;
+  height: 100%;
+}
+
+.box {
+  background-color: var(--dark700);
+  margin: 3px;
+  border-radius: 0px;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+.box2 {
+  margin: 5px;
+  border-radius: 0px;
+}
+
+.minibox {
+  background-color: var(--dark500);
+  margin: 0px;
+  border-radius: 0px;
+}
+
+.minibox2 {
+  background-color: var(--dark600);
+  margin: 0px;
+  border-radius: 0px;
+}
+
+.medbox {
+  background-color: var(--dark500);
+  border-radius: 0px;
+}
+
+.medbox2 {
+  background-color: var(--dark600);
+  border-radius: 0px;
+}
+
+.padding5 {
+  padding-left: 5px;
+}
+
+.circleChart {
+  height: 100px;
+  width: 100px;
+  margin: auto;
+  display: block;
+}
+
+.clockText {
+  text-align: center;
+  font-size: 1.3em;
+}
+
+.value {
+  color: var(--aqua900);
+}
+
+.title {
+  font-size: 1em;
+  text-align: center;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.subTitle {
+  font-size: 0.9em;
+  text-align: center;
+  margin-left: 5px;
+  margin-top: 1px;
+  margin-bottom: 5px;
+}
+
+.bold {
+  font-weight: 600;
+}
+
+.heading {
+  font-size: 1.5em;
+  text-align: left;
+  margin-left: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.label {
+  margin: auto;
+  text-align: center;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  padding: 2%;
+}
+
+#motorCharts {
+  margin-top: -20px;
+}
+
+.motorContainer {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.motorLabel {
+  margin: 2px;
+  text-align: left;
+}
+
+.powerLabel {
+  display: block;
+  width: 120px;
+  text-align: right;
+  margin: auto;
+  margin-right: 10px;
+}
+
+.powerChart {
+  margin-right: 10px;
+  margin-left: 5px;
+}
+
+.robot-container {
+  margin: -3px 0 0 0;
+}
+
+#robotDiagram {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+#autoDiagram {
+  margin-top: -40px;
+}
+
+.buttonLabel {
+  margin: 0px;
+  text-align: center;
+}
+
+/* buttons */
+
+.touchButton {
+  /*padding: 20px 6px 20px 6px !important;*/
+  line-height: 5px;
+  height: 80px;
+  width: 120px;
+  margin: 5;
+  background-color: var(--dark500) !important;
+}
+
+.touchButton.left {
+  width: 80px;
+  margin-right: 0px;
+  border-radius: 3px 0 0 3px;
+}
+
+.touchButton.right {
+  width: 80px;
+  margin-left: 0px;
+  border-radius: 0 3px 3px 0;
+}
+
+.touchButton.autoSelector {
+  width: 120px;
+}
+
+.buttonSelected {
+  background-color: var(--darkA400) !important;
+}
+
+.buttonText {
+  line-height: 15px;
+}
+
+.touchButton2 {
+  height: 50px;
+  width: 100px;
+  margin: 5px;
+  padding: 10px;
+  background-color: #13c919;
+}
+
+kbd.key {
+  background-color: #d4d4d4;
+  border: 1px solid #bdbdbd;
+  border-radius: 5px;
+  padding: 5px;
+  color: #000;
+}
+.nm-p p {
+  margin: 8px;
+}
+
+state-indicator, 
+color-ball {
+  margin: auto;
+}
+
+svg {
+  fill: var(--greenA200);
+  stroke: var(--greenA200);
+}
+
+md-checkbox {
+  margin-left: 5px !important;
+}
+
+md-select {
+  
+  width: initial;
+}
+md-select-value, md-select-value > span{
+  color: var(--aquaA100);
+}
+
+input[type="text"] {
+  width: 50%;
+}
+
+.select-c {
+  width: 80%;
+}
+.input-text-c {
+  width: 80%;
+}
+md-input-container{
+  margin: 18px 0 6px;
+}
+
+md-input-container .md-input {
+  color: var(--aquaA100);
+}
+
+md-tabs {
+  height: 100%;
+  color: var(--aquaA100);
+}
+
+md-tabs md-tab-content {
+  background-color: var(--dark600);
+}
+
+/* md-tabs md-ink-bar {
+  color: var(--aqua500);
+  background-color: var(--aqua500);
+} */
+
+#login {
+  position: fixed;
+  display: none;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+body.login #login {
+  display: flex;
+}
+#login :disabled {
+  opacity: 0.6;
+}
+#login > * {
+  height: 40px;
+}
+#login > button {
+  background-color: var(--greenA200);
+  color: var(--dark900);
+  padding: 10px 15px;
+  border: none;
+  border-radius: 2px;
+  margin-left: 5px;
+  -webkit-box-shadow: 0px 5px 8px 2px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 5px 8px 2px rgba(0,0,0,0.75);
+  box-shadow: 0px 5px 8px 2px rgba(0,0,0,0.75);
+}
+#login > button:hover{
+  background-color: var(--greenA700);
+}
+
+#login input{
+  text-align: center;
+  color:#000;
+}

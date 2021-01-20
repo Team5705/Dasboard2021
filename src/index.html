@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <title>FRC Dashboard</title>
     <link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css">
-    <link href="css/style.css" rel="stylesheet">
+    <link href="css/style-dark.css" rel="stylesheet">
     <script>if (typeof module === 'object') {
             window.module = module; module = undefined;
         }
@@ -263,7 +263,7 @@
                                         <div layout="column" flex="grow" layout-align="center center">
                                             <h1 class="title">Robot Gyroscope</h1>
                                             <compass value="data.sensors.gyroAngle" width="180" height="180"></compass>
-                                            <p class="subTitle">Gyro angle: {{data.sensors.gyroAngle}}</p>
+                                            <p class="subTitle">Gyro angle: <span class="value">{{data.sensors.gyroAngle}}</span></p>
                                         </div>
                                         <!-- end gyro value -->
                                         <div layout="column" flex="grow">
@@ -299,7 +299,7 @@
                                                         <h1 class="title"></h1>
                                                     </div>
                                                     <div layout="row" flex="grow" class="" layout-align="center center" ng-controller="sendAuto">
-                                                        <md-button ng-click="updateA()" class="md-raised md-primary"
+                                                        <md-button ng-click="updateA()" class="md-raised md-accent"
                                                             ng-class="" ng-mouseenter="select('on')">Update
                                                         </md-button>
                                                     </div>
@@ -367,124 +367,83 @@
                                                     <div layout="row" flex class="minibox" layout-align="center center">
                                                         <svg width="160" height="190" stroke-width="2px">
                                                             <!-- Chassis -->
-                                                            <rect x="0" y="0" width="160" height="190" stroke="black"
-                                                                stroke-width="4px" fill="none" />
+                                                            <rect x="0" y="0" width="160" height="190" stroke-width="4px" fill="none" />
                                                             <!-- Left side -->
                                                             <g transform="translate(0,0)" fill="none">
-                                                                <rect x="0" y="0" width="30" height="190" stroke="black"
+                                                                <rect x="0" y="0" width="30" height="190" 
                                                                     fill="none" />
                                                                 <g transform="translate(5,10)">
-                                                                    <rect width="20" height="40" stroke="black" />
-                                                                    <line x1="0" x2="20" y1="0" y2="6" stroke="black" />
-                                                                    <line x1="0" x2="20" y1="6" y2="12"
-                                                                        stroke="black" />
-                                                                    <line x1="0" x2="20" y1="12" y2="18"
-                                                                        stroke="black" />
-                                                                    <line x1="0" x2="20" y1="18" y2="24"
-                                                                        stroke="black" />
-                                                                    <line x1="0" x2="20" y1="24" y2="30"
-                                                                        stroke="black" />
-                                                                    <line x1="0" x2="20" y1="30" y2="36"
-                                                                        stroke="black" />
-                                                                    <line x1="0" x2="16" y1="36" y2="40"
-                                                                        stroke="black" />
+                                                                    <rect width="20" height="40"/>
+                                                                    <line x1="0" x2="20" y1="0" y2="6"/>
+                                                                    <line x1="0" x2="20" y1="6" y2="12"/>
+                                                                    <line x1="0" x2="20" y1="12" y2="18"/>
+                                                                    <line x1="0" x2="20" y1="18" y2="24"/>
+                                                                    <line x1="0" x2="20" y1="24" y2="30"/>
+                                                                    <line x1="0" x2="20" y1="30" y2="36"/>
+                                                                    <line x1="0" x2="16" y1="36" y2="40"/>
                                                                 </g>
                                                                 <g transform="translate(5,75)">
-                                                                    <rect width="20" height="40" stroke="black" />
-                                                                    <line x1="0" x2="20" y1="0" y2="6" stroke="black" />
-                                                                    <line x1="0" x2="20" y1="6" y2="12"
-                                                                        stroke="black" />
-                                                                    <line x1="0" x2="20" y1="12" y2="18"
-                                                                        stroke="black" />
-                                                                    <line x1="0" x2="20" y1="18" y2="24"
-                                                                        stroke="black" />
-                                                                    <line x1="0" x2="20" y1="24" y2="30"
-                                                                        stroke="black" />
-                                                                    <line x1="0" x2="20" y1="30" y2="36"
-                                                                        stroke="black" />
-                                                                    <line x1="0" x2="16" y1="36" y2="40"
-                                                                        stroke="black" />
+                                                                    <rect width="20" height="40"/>
+                                                                    <line x1="0" x2="20" y1="0" y2="6"/>
+                                                                    <line x1="0" x2="20" y1="6" y2="12"/>
+                                                                    <line x1="0" x2="20" y1="12" y2="18"/>
+                                                                    <line x1="0" x2="20" y1="18" y2="24"/>
+                                                                    <line x1="0" x2="20" y1="24" y2="30"/>
+                                                                    <line x1="0" x2="20" y1="30" y2="36"/>
+                                                                    <line x1="0" x2="16" y1="36" y2="40"/>
                                                                 </g>
                                                                 <g transform="translate(5,140)">
-                                                                    <rect width="20" height="40" stroke="black" />
-                                                                    <line x1="0" x2="20" y1="0" y2="6" stroke="black" />
-                                                                    <line x1="0" x2="20" y1="6" y2="12"
-                                                                        stroke="black" />
-                                                                    <line x1="0" x2="20" y1="12" y2="18"
-                                                                        stroke="black" />
-                                                                    <line x1="0" x2="20" y1="18" y2="24"
-                                                                        stroke="black" />
-                                                                    <line x1="0" x2="20" y1="24" y2="30"
-                                                                        stroke="black" />
-                                                                    <line x1="0" x2="20" y1="30" y2="36"
-                                                                        stroke="black" />
-                                                                    <line x1="0" x2="16" y1="36" y2="40"
-                                                                        stroke="black" />
+                                                                    <rect width="20" height="40"/>
+                                                                    <line x1="0" x2="20" y1="0" y2="6"/>
+                                                                    <line x1="0" x2="20" y1="6" y2="12"/>
+                                                                    <line x1="0" x2="20" y1="12" y2="18"/>
+                                                                    <line x1="0" x2="20" y1="18" y2="24"/>
+                                                                    <line x1="0" x2="20" y1="24" y2="30"/>
+                                                                    <line x1="0" x2="20" y1="30" y2="36"/>
+                                                                    <line x1="0" x2="16" y1="36" y2="40"/>
                                                                 </g>
                                                             </g>
 
                                                             <!-- Right side     -->
                                                             <g transform="translate(130,0)" fill="none">
-                                                                <rect x="0" y="0" width="30" height="190" stroke="black"
+                                                                <rect x="0" y="0" width="30" height="190" 
                                                                     fill="none" />
                                                                 <g transform="translate(5,10)">
-                                                                    <rect width="20" height="40" stroke="black" />
-                                                                    <line x1="0" x2="20" y1="0" y2="6" stroke="black" />
-                                                                    <line x1="0" x2="20" y1="6" y2="12"
-                                                                        stroke="black" />
-                                                                    <line x1="0" x2="20" y1="12" y2="18"
-                                                                        stroke="black" />
-                                                                    <line x1="0" x2="20" y1="18" y2="24"
-                                                                        stroke="black" />
-                                                                    <line x1="0" x2="20" y1="24" y2="30"
-                                                                        stroke="black" />
-                                                                    <line x1="0" x2="20" y1="30" y2="36"
-                                                                        stroke="black" />
-                                                                    <line x1="0" x2="16" y1="36" y2="40"
-                                                                        stroke="black" />
+                                                                    <rect width="20" height="40"/>
+                                                                    <line x1="0" x2="20" y1="0" y2="6"/>
+                                                                    <line x1="0" x2="20" y1="6" y2="12"/>
+                                                                    <line x1="0" x2="20" y1="12" y2="18"/>
+                                                                    <line x1="0" x2="20" y1="18" y2="24"/>
+                                                                    <line x1="0" x2="20" y1="24" y2="30"/>
+                                                                    <line x1="0" x2="20" y1="30" y2="36"/>
+                                                                    <line x1="0" x2="16" y1="36" y2="40"/>
                                                                 </g>
                                                                 <g transform="translate(5,75)">
-                                                                    <rect width="20" height="40" stroke="black" />
-                                                                    <line x1="0" x2="20" y1="0" y2="6" stroke="black" />
-                                                                    <line x1="0" x2="20" y1="6" y2="12"
-                                                                        stroke="black" />
-                                                                    <line x1="0" x2="20" y1="12" y2="18"
-                                                                        stroke="black" />
-                                                                    <line x1="0" x2="20" y1="18" y2="24"
-                                                                        stroke="black" />
-                                                                    <line x1="0" x2="20" y1="24" y2="30"
-                                                                        stroke="black" />
-                                                                    <line x1="0" x2="20" y1="30" y2="36"
-                                                                        stroke="black" />
-                                                                    <line x1="0" x2="16" y1="36" y2="40"
-                                                                        stroke="black" />
+                                                                    <rect width="20" height="40"/>
+                                                                    <line x1="0" x2="20" y1="0" y2="6"/>
+                                                                    <line x1="0" x2="20" y1="6" y2="12"/>
+                                                                    <line x1="0" x2="20" y1="12" y2="18"/>
+                                                                    <line x1="0" x2="20" y1="18" y2="24"/>
+                                                                    <line x1="0" x2="20" y1="24" y2="30"/>
+                                                                    <line x1="0" x2="20" y1="30" y2="36"/>
+                                                                    <line x1="0" x2="16" y1="36" y2="40"/>
                                                                 </g>
                                                                 <g transform="translate(5,140)">
-                                                                    <rect width="20" height="40" stroke="black" />
-                                                                    <line x1="0" x2="20" y1="0" y2="6" stroke="black" />
-                                                                    <line x1="0" x2="20" y1="6" y2="12"
-                                                                        stroke="black" />
-                                                                    <line x1="0" x2="20" y1="12" y2="18"
-                                                                        stroke="black" />
-                                                                    <line x1="0" x2="20" y1="18" y2="24"
-                                                                        stroke="black" />
-                                                                    <line x1="0" x2="20" y1="24" y2="30"
-                                                                        stroke="black" />
-                                                                    <line x1="0" x2="20" y1="30" y2="36"
-                                                                        stroke="black" />
-                                                                    <line x1="0" x2="16" y1="36" y2="40"
-                                                                        stroke="black" />
+                                                                    <rect width="20" height="40"/>
+                                                                    <line x1="0" x2="20" y1="0" y2="6"/>
+                                                                    <line x1="0" x2="20" y1="6" y2="12"/>
+                                                                    <line x1="0" x2="20" y1="12" y2="18"/>
+                                                                    <line x1="0" x2="20" y1="18" y2="24"/>
+                                                                    <line x1="0" x2="20" y1="24" y2="30"/>
+                                                                    <line x1="0" x2="20" y1="30" y2="36"/>
+                                                                    <line x1="0" x2="16" y1="36" y2="40"/>
                                                                 </g>
                                                             </g>
                                                             <!-- Drive Motors -->
-                                                            <rect x="32" y="78" width="30" height="15" fill="black"
-                                                                stroke="none" />
-                                                            <rect x="32" y="96" width="30" height="15" fill="black"
-                                                                stroke="none" />
-                                                            <rect x="98" y="78" width="30" height="15" fill="black"
-                                                                stroke="none" />
-                                                            <rect x="98" y="96" width="30" height="15" fill="black"
-                                                                stroke="none" />
+                                                            <rect x="32" y="78" width="30" height="15" stroke="none" />
+                                                            <rect x="32" y="96" width="30" height="15" stroke="none" />
+                                                            <rect x="98" y="78" width="30" height="15" stroke="none" />
+                                                            <rect x="98" y="96" width="30" height="15" stroke="none" />
                                                         </svg>
                                                     </div>
                                                 </div>
@@ -587,7 +546,7 @@
                                             </md-input-container>
                                         </div>
                                         <div layout="row" flex="grow" layout-align="end center">
-                                            <md-button class="md-raised md-primary" ng-click="updateSources()">
+                                            <md-button class="md-raised md-accent" ng-click="updateSources()">
                                                 Update Sources
                                             </md-button>
                                         </div>
@@ -601,7 +560,7 @@
                                             <h1 class="title">Robot Connection</h1>
                                         </div>
                                         <div layout="row" flex="grow" ng-controller="doConnection" layout-align="center center">
-                                            <md-button ng-click="openModal()" class="md-raised md-primary" ng-class=""
+                                            <md-button ng-click="openModal()" class="md-raised md-accent" ng-class=""
                                                 ng-mouseenter="select('on')">Connect</md-button>
                                         </div><!-- button connection -->
                                     </div>
@@ -615,13 +574,12 @@
             </div>
             <!-- end container -->
         </div>
+        <div id="login">
+            <input id="connect-address" type="text" value="localhost" disabled>
+            <button id="connect" disabled class="md-raised md-primary">Connecting</button>
+        </div>
     </div>
     <!-- container-fluid -->
-
-    <div id="login">
-        <input id="connect-address" type="text" value="localhost" disabled>
-        <button id="connect" disabled>Connecting</button>
-    </div>
 
     <script src="controller.js"></script>
     <script src="connection.js"></script>
