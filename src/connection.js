@@ -60,7 +60,7 @@ function setLogin() {
   address.disabled = connect.disabled = false;
   connect.textContent = 'Connect';
   // Add the default address and select xxxx
-  address.value = 'localhost';
+  address.value = '10.57.5.2';
   address.focus();
   address.setSelectionRange(8, 12);
 }
