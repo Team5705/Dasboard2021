@@ -30,6 +30,40 @@ app.controller("sendAuto", ["$scope", function ($scope) {
     }
   );
   
+  NetworkTables.addKeyListener("/CameraPublisher/limelight/streams", (key, value) => {
+      var stream = value[0].replace("mjpg:","");
+
+      console.log(stream);
+  
+      scp.updateService.onValueChanged("cameras/limelight", stream);
+      scp.$apply();
+
+      updateCameras(scp);
+    }
+  );
+
+/* Vision */
+NetworkTables.addKeyListener("/SmartDashboard/X", (key, value) => {
+  scp.updateService("vision/x", value);
+  scp.$apply();
+});
+NetworkTables.addKeyListener("/SmartDashboard/Y", (key, value) => {
+  scp.updateService("vision/y", value);
+  scp.$apply();
+});
+NetworkTables.addKeyListener("/SmartDashboard/Area", (key, value) => {
+  scp.updateService("vision/area", value);
+  scp.$apply();
+});
+NetworkTables.addKeyListener("/SmartDashboard/Distance", (key, value) => {
+  scp.updateService("vision/xDistance", value);
+  scp.$apply();
+});
+NetworkTables.addKeyListener("/SmartDashboard/targetVisible", (key, value) => {
+  scp.updateService("vision/targetVisible", value);
+  scp.$apply();
+});
+  
 /* Automodes */
   
   NetworkTables.addKeyListener( "/SmartDashboard/Auto Mode/options", (key, value) => {

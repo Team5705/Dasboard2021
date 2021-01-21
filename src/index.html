@@ -79,12 +79,18 @@
                                     </div>
                                     <div layout="row" flex="grow">
                                         <div layout="column" flex="grow" class="minibox2 bold padding5"
-                                            layout-align="center start">Distance:</div>
+                                            layout-align="center start">Area:</div>
                                         <div layout="column" flex="grow" class="minibox2" layout-align="center center">
+                                            {{data.vision.area}}</div>
+                                    </div>
+                                    <div layout="row" flex="grow">
+                                        <div layout="column" flex="grow" class="minibox bold padding5"
+                                            layout-align="center start">Distance:</div>
+                                        <div layout="column" flex="grow" class="minibox" layout-align="center center">
                                             {{data.vision.xDistance}}</div>
                                     </div>
                                     <div layout="row" flex="grow">
-                                        <div class="minibox label bold">
+                                        <div class="minibox2 label bold">
                                             <p>Ready shot?</p>
                                             <state-indicator value="data.vision.targetVisible" radio="14" width="30"
                                                 height="30" style="height: 30px;"></state-indicator>

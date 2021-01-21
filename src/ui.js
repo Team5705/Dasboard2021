@@ -56,7 +56,7 @@ app.factory("updateService", () => {
       usb: '',
     },
     sensors: {
-      gyroAngle: 0,
+      gyroAngle: 0.0,
       isGyroCalibrated: false,
       switch1: false,
       switch2: false,
@@ -64,21 +64,22 @@ app.factory("updateService", () => {
       swithc4: false,
     },
     motors: {
-      leftEncoder: 0,
-      leftRate: 0,
-      leftPosition: 0,
-      rightEncoder: 0,
-      rightRate: 0,
-      rightPosition: 0,
+      leftEncoder: 0.0,
+      leftRate: 0.0,
+      leftPosition: 0.0,
+      rightEncoder: 0.0,
+      rightRate: 0.0,
+      rightPosition: 0.0,
     },
     pneumatics: {
       intake: false,
     },
     vision: {
-      x: 0,
-      y: 0,
+      x: 0.0,
+      y: 0.0,
+      area: 0.0,
       targetVisible: false,
-      xDistance: 0,
+      xDistance: 0.0,
     },
     match: {
       time: '0:00',
@@ -168,12 +169,12 @@ let updateCameras = ($scope) => {
   if (l_ === '') {
     $scope.data.cameras.limeCont.style.background = "url('../images/notFound.png') no-repeat";
   }else{
-    $scope.data.cameras.limeCont.style.background = "url('"+l_+"') no-repeat";
+    $scope.data.cameras.limeCont.style.background = "url("+l_+") no-repeat";
   }
   if (c_ === '') {
     $scope.data.cameras.usbCont.style.background = "url('../images/notFound.png') no-repeat";
   }else{
-    $scope.data.cameras.usbCont.style.background = "url('"+c_+"') no-repeat";
+    $scope.data.cameras.usbCont.style.background = "url("+c_+") no-repeat";
   }
   $scope.data.cameras.limeCont.style.backgroundSize = "100% 100%";
   $scope.data.cameras.usbCont.style.backgroundSize = "100% 100%";
