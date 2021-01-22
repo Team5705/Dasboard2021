@@ -21,8 +21,8 @@
     <script src="bower_components/angular-aria/angular-aria.min.js"></script>
     <script src="bower_components/angular-material/angular-material.min.js"></script>
     <script src="bower_components/angular-messages/angular-messages.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.8.4/nv.d3.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.8.4/nv.d3.js"></script> -->
     <script src="bower_components/angular-nvd3/dist/angular-nvd3.js"></script>
     <script src="networktables/networktables.js"></script>
     <script src="ui.js"></script>
@@ -36,7 +36,7 @@
 </head>
 
 <body>
-    <div class="father" ng-controller="uiCtrl">
+    <div class="father" ng-controller="uiCtrl" ng-keyup="keydown($event)">
         <div id="container" class="background" layout="column" layout-fill flex="grow">
             <!--container for the rest of the UI -->
             <div layout="row" flex="grow">

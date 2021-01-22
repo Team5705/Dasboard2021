@@ -60,7 +60,7 @@ function createWindow() {
             connectFunc();
         }
         connectedFunc = connectFunc;
-    }, simIp);
+    });
     // When the script starts running in the window set the ready variable
     ipc.on('ready', (ev, mesg) => {
         console.log('NetworkTables is ready');
@@ -76,9 +76,10 @@ function createWindow() {
         // Send connection message to the window if if the message is ready
         if (connectedFunc) {
             connectedFunc();
-        } else {
-            ipc.emit('connect', null, simIp);
         }
+        // } else {
+        //     ipc.emit('connect', null, robotIp);
+        // }
     });
     // When the user chooses the address of the bot than try to connect
     ipc.on('connect', (ev, address, port) => {

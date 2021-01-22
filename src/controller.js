@@ -18,8 +18,20 @@ app.controller("sendAuto", ["$scope", function ($scope) {
 
 /* Streams */
 
+NetworkTables.addKeyListener("/CameraPublisher/limelight/streams", (key, value) => {
+    var stream = value[0].replace("mjpg:","");
+
+    console.log(stream);
+
+    scp.updateService.onValueChanged("cameras/limelight", stream);
+    scp.$apply();
+
+    updateCameras(scp);
+  }
+);
+
   NetworkTables.addKeyListener("/CameraPublisher/USB Camera 0/streams", (key, value) => {
-      var stream = value[0].replace("mjpg:","");
+      var stream = value[1].replace("mjpg:","");
 
       console.log(stream);
   
@@ -27,46 +39,41 @@ app.controller("sendAuto", ["$scope", function ($scope) {
       scp.$apply();
 
       updateCameras(scp);
-    }
-  );
-  
-  NetworkTables.addKeyListener("/CameraPublisher/limelight/streams", (key, value) => {
-      var stream = value[0].replace("mjpg:","");
-
-      console.log(stream);
-  
-      scp.updateService.onValueChanged("cameras/limelight", stream);
-      scp.$apply();
-
       updateCameras(scp);
     }
   );
+  
 
 /* Vision */
-NetworkTables.addKeyListener("/SmartDashboard/X", (key, value) => {
-  scp.updateService("vision/x", value);
+// NetworkTables.addKeyListener("/limelight/camMode", (key, value) => {
+//   scp.updateService.onValueChanged("vision/camMode", roundVal(value));
+//   scp.$apply();
+//   console.log("Cam mode: " + value);
+// });
+NetworkTables.addKeyListener("/SmartDashboard/tX", (key, value) => {
+  scp.updateService.onValueChanged("vision/x", roundVal(value));
   scp.$apply();
 });
-NetworkTables.addKeyListener("/SmartDashboard/Y", (key, value) => {
-  scp.updateService("vision/y", value);
+NetworkTables.addKeyListener("/SmartDashboard/tY", (key, value) => {
+  scp.updateService.onValueChanged("vision/y", roundVal(value));
   scp.$apply();
 });
 NetworkTables.addKeyListener("/SmartDashboard/Area", (key, value) => {
-  scp.updateService("vision/area", value);
+  scp.updateService.onValueChanged("vision/area", roundVal(value));
   scp.$apply();
 });
 NetworkTables.addKeyListener("/SmartDashboard/Distance", (key, value) => {
-  scp.updateService("vision/xDistance", value);
+  scp.updateService.onValueChanged("vision/xDistance", roundVal(value));
   scp.$apply();
 });
 NetworkTables.addKeyListener("/SmartDashboard/targetVisible", (key, value) => {
-  scp.updateService("vision/targetVisible", value);
+  scp.updateService.onValueChanged("vision/targetVisible", value);
   scp.$apply();
 });
   
 /* Automodes */
   
-  NetworkTables.addKeyListener( "/SmartDashboard/Auto Mode/options", (key, value) => {
+  NetworkTables.addKeyListener( "/SmartDashboard/autoMode/options", (key, value) => {
       console.log(value);
       scp.updateService.onValueChanged("autoMode/availableModes", value);
       scp.$apply();
@@ -93,17 +100,23 @@ NetworkTables.addKeyListener("/SmartDashboard/targetVisible", (key, value) => {
     scp.$apply();
   });
   
+  /* Game info */
+  NetworkTables.addKeyListener("/SmartDashboard/Time", (key, value) => {
+    var elapsedTime = value < 0 ? '0:00' : Math.floor(value / 60) + ':' + (value % 60 < 10 ? '0' : '') + (value % 60).toFixed(1);
+    scp.updateService.onValueChanged("match/time", elapsedTime);
+    scp.$apply();
+  });
+
   /* GameData */
   
   NetworkTables.addKeyListener("/SmartDashboard/gamedata", (key, value) => {
     console.log("gamedata: " + value);
-  
     scp.updateService.onValueChanged("gamedata/color", value);
     scp.$apply();
   });
   NetworkTables.addKeyListener("/SmartDashboard/R", (key, value) => {
     console.log("Red: " + value);
-  
+
     scp.updateService.onValueChanged("gamedata/R", value);
     scp.$apply();
   });
@@ -115,7 +128,7 @@ NetworkTables.addKeyListener("/SmartDashboard/targetVisible", (key, value) => {
   });
   NetworkTables.addKeyListener("/SmartDashboard/B", (key, value) => {
     console.log("Blue: " + value);
-  
+    
     scp.updateService.onValueChanged("gamedata/B", value);
     scp.$apply();
   });
@@ -137,7 +150,7 @@ NetworkTables.addKeyListener("/SmartDashboard/targetVisible", (key, value) => {
     scp.$apply();
   });
   NetworkTables.addKeyListener("/SmartDashboard/rateL", (key,value) => {
-    scp.updateService.onValueChanged('motors/leftRate', value);
+    scp.updateService.onValueChanged('motors/leftRate', roundVal(value));
     scp.$apply();
   });
   NetworkTables.addKeyListener("/SmartDashboard/encoder_R", (key,value) => {
@@ -149,7 +162,7 @@ NetworkTables.addKeyListener("/SmartDashboard/targetVisible", (key, value) => {
     scp.$apply();
   });
   NetworkTables.addKeyListener("/SmartDashboard/rateR", (key,value) => {
-    scp.updateService.onValueChanged('motors/rightRate', value);
+    scp.updateService.onValueChanged('motors/rightRate', roundVal(value));
     scp.$apply();
   });
 

@@ -80,9 +80,10 @@ app.factory("updateService", () => {
       area: 0.0,
       targetVisible: false,
       xDistance: 0.0,
+      camMode: 0,
     },
     match: {
-      time: '0:00',
+      time: '',
       phase: "not started",
     },
     autoMode: {
@@ -148,9 +149,11 @@ app.factory("updateService", () => {
   // NetworkTables.addRobotConnectionListener(updateService.onConnection, true);
   // NetworkTables.addGlobalListener(updateService.onValueChanged, true);
   
-  
+  scp = updateService;
   return updateService;
 });
+
+
 
 app.controller("uiCtrl", ($scope, updateService) => {
 
@@ -160,6 +163,20 @@ app.controller("uiCtrl", ($scope, updateService) => {
   scp = $scope;
 
   updateCameras($scope)
+
+  $scope.keydown = function(keyEvent) {
+    var key = keyEvent.key.toLowerCase();
+
+    switch(key){
+      case 'd':
+        updateService.onValueChanged('vision/camMode', !$scope.data.vision.camMode);
+        NetworkTables.putValue('/limelight/camMode', parseInt($scope.data.vision.camMode));
+        console.log("camMode changed");
+      break;
+      default: break;
+    }
+
+  }
 
 });
 
@@ -200,7 +217,7 @@ app.controller('autoCtrl', ($scope, updateService) => {
     $scope.updateAuto = () => {
       var autonomous = $scope.autoSelected.toLowerCase();
       updateService.onValueChanged('autoMode/selectedMode', autonomous);
-      NetworkTables.putValue('/SmartDashboard/autoMode/active', autonomous);
+      NetworkTables.putValue('/SmartDashboard/autoMode/selected', autonomous);
       console.log("Auto selected: " + autonomous);
     }
 });
